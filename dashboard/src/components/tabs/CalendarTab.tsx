@@ -116,19 +116,24 @@ const CalendarTab: React.FC<CalendarTabProps> = ({ data }) => {
                     let borderColor = 'rgba(255,255,255,0.05)';
                     let glow = 'none';
 
-                    if (rrVal > 0) {
-                      if (rrVal >= 10) { bgColor = 'var(--success)'; borderColor = 'var(--success)'; glow = '0 0 15px var(--success-glow)'; }
-                      else if (rrVal >= 5) { bgColor = 'var(--success-dark)'; borderColor = 'var(--success-dark)'; }
-                      else { bgColor = '#064e3b'; borderColor = '#064e3b'; }
-                    } else if (rrVal < 0) {
-                      if (rrVal <= -4) { bgColor = 'var(--danger)'; borderColor = 'var(--danger)'; glow = '0 0 15px var(--danger-glow)'; }
-                      else if (rrVal <= -2) { bgColor = 'var(--danger-dark)'; borderColor = 'var(--danger-dark)'; }
-                      else { bgColor = '#7f1d1d'; borderColor = '#7f1d1d'; }
+                    let displayVal = rrVal.toFixed(1);
+                    if (displayVal === '-0.0') displayVal = '0.0';
+
+                    if (displayVal !== '0.0') {
+                      if (rrVal > 0) {
+                        if (rrVal >= 10) { bgColor = 'var(--success)'; borderColor = 'var(--success)'; glow = '0 0 15px var(--success-glow)'; }
+                        else if (rrVal >= 5) { bgColor = 'var(--success-dark)'; borderColor = 'var(--success-dark)'; }
+                        else { bgColor = '#064e3b'; borderColor = '#064e3b'; }
+                      } else if (rrVal < 0) {
+                        if (rrVal <= -4) { bgColor = 'var(--danger)'; borderColor = 'var(--danger)'; glow = '0 0 15px var(--danger-glow)'; }
+                        else if (rrVal <= -2) { bgColor = 'var(--danger-dark)'; borderColor = 'var(--danger-dark)'; }
+                        else { bgColor = '#7f1d1d'; borderColor = '#7f1d1d'; }
+                      }
                     }
 
                     if (isSelected) {
                       borderColor = 'white';
-                      glow = `0 0 0 2px var(--bg-main), 0 0 0 4px ${rrVal >= 0 ? 'var(--success)' : 'var(--danger)'}`;
+                      glow = `0 0 0 2px var(--bg-main), 0 0 0 4px ${displayVal === '0.0' ? 'var(--accent-primary)' : (rrVal >= 0 ? 'var(--success)' : 'var(--danger)')}`;
                     }
 
                     cells.push(
@@ -159,7 +164,7 @@ const CalendarTab: React.FC<CalendarTabProps> = ({ data }) => {
                         }}
                       >
                         <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'white', opacity: isSelected ? 1 : 0.9 }}>
-                          {rrVal > 0 ? '+' : ''}{rrVal.toFixed(1)}
+                          {rrVal > 0 && displayVal !== '0.0' ? '+' : ''}{displayVal}
                         </span>
                       </div>
                     );
@@ -213,8 +218,8 @@ const CalendarTab: React.FC<CalendarTabProps> = ({ data }) => {
             <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
               {hoveredCell.month} {hoveredCell.year}
             </span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: hoveredCell.rr >= 0 ? 'var(--success)' : 'var(--danger)' }}>
-              {hoveredCell.rr > 0 ? '+' : ''}{hoveredCell.rr} RR
+            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: Number(hoveredCell.rr.toFixed(1)) > 0 ? 'var(--success)' : Number(hoveredCell.rr.toFixed(1)) < 0 ? 'var(--danger)' : 'var(--text-primary)' }}>
+              {Number(hoveredCell.rr.toFixed(1)) > 0 ? '+' : ''}{Number(hoveredCell.rr.toFixed(1)) === 0 ? '0.0' : hoveredCell.rr.toFixed(2)} RR
             </span>
             <div style={{ position: 'absolute', bottom: '-6px', left: '50%', transform: 'translateX(-50%)', width: 0, height: 0, borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderTop: '6px solid var(--border-highlight)' }} />
           </div>
