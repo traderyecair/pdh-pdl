@@ -43,7 +43,7 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ metrics, data }) => {
             <Target size={32} />
           </div>
           <div>
-            <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.25rem' }}>Kazanma Oranı</div>
+            <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.25rem' }}>Win Rate</div>
             <div className={metrics.winRate >= 50 ? 'glow-text-success' : 'glow-text-danger'} style={{ fontSize: '2.5rem', fontWeight: 800 }}>
               %{metrics.winRate.toFixed(1)}
             </div>
@@ -81,7 +81,7 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ metrics, data }) => {
         
         {/* Streaks Card */}
         <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <h3 style={{ fontSize: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>Psikolojik Faktörler</h3>
+          <h3 style={{ fontSize: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>Kazanç/Kayıp Serileri</h3>
           
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>

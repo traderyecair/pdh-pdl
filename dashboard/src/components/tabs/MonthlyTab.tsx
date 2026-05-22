@@ -45,7 +45,7 @@ const MonthlyTab: React.FC<MonthlyTabProps> = ({ data }) => {
     <div className="animate-fade-in">
       <div className="glass-panel" style={{ padding: '2rem', marginBottom: '2rem' }}>
         <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-          Aydan Aya Kâr/Zarar ve İşlem Sıklığı
+          Aydan Aya Kar/Zarar ve İşlem Sıklığı
         </h2>
         
         {/* Chart */}
@@ -59,7 +59,7 @@ const MonthlyTab: React.FC<MonthlyTabProps> = ({ data }) => {
                 <YAxis yAxisId="right" orientation="right" stroke="var(--accent-primary)" tickLine={false} axisLine={false} />
                 <Tooltip cursor={{ fill: 'rgba(255,255,255,0.05)' }} content={<CustomTooltip />} />
                 
-                <Bar yAxisId="left" dataKey="rrData" name="Net Kâr (RR)" radius={[4, 4, 0, 0]}>
+                <Bar yAxisId="left" dataKey="rrData" name="Net Kar (RR)" radius={[4, 4, 0, 0]}>
                   {chartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.rrData >= 0 ? 'var(--success)' : 'var(--danger)'} />
                   ))}
@@ -78,7 +78,7 @@ const MonthlyTab: React.FC<MonthlyTabProps> = ({ data }) => {
               <tr>
                 <th style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}>Yıl - Ay</th>
                 <th style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)', textAlign: 'center' }}>Toplam İşlem</th>
-                <th style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)', textAlign: 'right' }}>Net Kâr (RR)</th>
+                <th style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)', textAlign: 'right' }}>Net Kar (RR)</th>
                 <th style={{ padding: '1rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)', textAlign: 'center' }}>Durum</th>
               </tr>
             </thead>
@@ -92,7 +92,7 @@ const MonthlyTab: React.FC<MonthlyTabProps> = ({ data }) => {
                   </td>
                   <td style={{ padding: '1rem', textAlign: 'center' }}>
                     <span className={`badge ${row.rrData > 0 ? 'badge-success' : row.rrData < 0 ? 'badge-danger' : 'badge-neutral'}`}>
-                      {row.rrData > 0 ? 'Kâr' : row.rrData < 0 ? 'Zarar' : 'Nötr'}
+                      {row.rrData > 0 ? 'Kar' : row.rrData < 0 ? 'Zarar' : 'Nötr'}
                     </span>
                   </td>
                 </tr>

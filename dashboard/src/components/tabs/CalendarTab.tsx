@@ -70,11 +70,10 @@ const CalendarTab: React.FC<CalendarTabProps> = ({ data }) => {
               <Calendar size={24} color="var(--accent-secondary)" />
               Yıllık Performans Haritası
             </h2>
-            <p style={{ color: 'var(--text-muted)', marginTop: '0.25rem' }}>Aylık net RR değerlerine göre stratejinizin dönemsel gücü</p>
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600, background: 'rgba(0,0,0,0.3)', padding: '0.5rem 1rem', borderRadius: '99px', border: '1px solid var(--border-color)' }}>
-            <span style={{ color: 'var(--text-muted)' }}>Hasar</span>
+            <span style={{ color: 'var(--text-muted)' }}>Kayıp</span>
             <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--danger)', boxShadow: '0 0 8px var(--danger-glow)' }} />
             <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--danger-dark)' }} />
             <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'rgba(255,255,255,0.05)', margin: '0 4px' }} />
@@ -247,7 +246,6 @@ const CalendarTab: React.FC<CalendarTabProps> = ({ data }) => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
             <div>
               <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Aylık İşlem Takvimi</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Seçilen aydaki işlem performansı</p>
             </div>
             
             {/* New Arrow Navigation */}
@@ -385,7 +383,7 @@ const CalendarTab: React.FC<CalendarTabProps> = ({ data }) => {
                 <span style={{ fontWeight: 700 }}>{currentMonthData.total_trades}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>Kazanma Oranı</span>
+                <span style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>Win Rate</span>
                 <span style={{ fontWeight: 700, color: currentMonthData.win_rate >= 50 ? 'var(--success)' : 'var(--danger)' }}>%{currentMonthData.win_rate}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -67,7 +67,7 @@ const App: React.FC = () => {
 
   const navItems = [
     { id: 'genel', label: 'Genel Bakış', icon: <LayoutDashboard size={20} /> },
-    { id: 'aylik', label: 'Aylık Kâr/Zarar', icon: <BarChart3 size={20} /> },
+    { id: 'aylik', label: 'Aylık Kar/Zarar', icon: <BarChart3 size={20} /> },
     { id: 'takvim', label: 'Isı Haritası', icon: <CalendarDays size={20} /> },
     { id: 'tablo', label: 'İşlem Kayıtları', icon: <ListTodo size={20} /> }
   ];
