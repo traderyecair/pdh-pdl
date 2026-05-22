@@ -16,7 +16,7 @@ const App: React.FC = () => {
     const loadData = async () => {
       try {
         setLoading(true);
-        const parsedData = await parseCSVData('/data.csv');
+        const parsedData = await parseCSVData(`${import.meta.env.BASE_URL}data.csv`);
         setData(parsedData);
       } catch (err) {
         setError('Failed to load trading data.');
